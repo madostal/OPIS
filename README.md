@@ -1,2 +1,2 @@
 # OPIS
-Repository for school project KIV/OPIS
+Repository for my university project KIV/OPIS
