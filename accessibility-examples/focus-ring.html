@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Focus Ring!</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .demo {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    button, 
+    input {
+      margin-bottom: 20px;
+    }
+
+    .own-style-btn {
+      color: #eee;
+      width: 200px;
+      height: 50px;
+      font-size: 22px;
+      cursor: pointer;
+      overflow: hidden;
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: tomato;
+      border: none;
+      border-radius: 4px;
+
+      /* DON'T DO IT! */
+      /* outline: none; */ 
+    }
+    .own-style-btn:hover {
+      background-color: red;
+    }
+    .own-style-btn:active {
+      background-color: darkred;
+    }
+
+    :focus:not(.focus-visible) {
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="demo">
+    <input type="text" name="test">
+    <button>Native browser button</button>
+    <button class="own-style-btn">Styled button</button>
+    <div class="own-style-btn" role="button" tabindex="0">Custom button</div>
+  </div>
+
+  <script src="./node_modules/focus-visible/dist/focus-visible.js"></script>
+</body>
+</html>

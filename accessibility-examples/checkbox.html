@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Inputs accessibility</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+    <style>
+        html {padding: 10px;}
+    </style>
+</head>
+<body>
+    <h2>Accessibility of the checkboxes</h2>
+
+    <div class="form-group form-check">
+        <input type="checkbox" name="test" id="firstcb" class="form-check-input">
+        <label class="form-check-label" for="firstcb">Check me!</label>
+    </div>
+
+    <div tabindex="0" role="checkbox" aria-checked="true">Check me 2!</div>
+</body>
+</html>

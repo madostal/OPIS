@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Radio buttons accessibility</title>
+</head>
+<body>
+
+    <!-- Using tabindex only for radiogroup item. Then use aria-activedescendant for the checked radio. -->
+    <div role="radiogroup" tabindex="0" aria-activedescendant="rb3">
+        <div id="rb1" role="radio" aria-checked="false">first radio</div>
+        <div id="rb2" role="radio" aria-checked="false">second radio</div>
+        <div id="rb3" role="radio" aria-checked="true">third radio</div>
+    </div>
+
+    <!-- Another example of aria-activedescendant, for custom auto complete. -->
+    <input type="text" aria-activedescendant="cb1-opt6" aria-readonly="true" 
+    aria-owns="cb1-list" aria-autocomplete="list" role="combobox" id="cb1-edit">
+    <ul aria-expanded="true" role="listbox" id="cb1-list">
+        <li role="option" id="cb1-opt1">Arizona</li>
+        <li role="option" id="cb1-opt2">Arkansas</li>
+        <li role="option" id="cb1-opt3">California</li>
+        <li role="option" id="cb1-opt4">Colorado</li>
+    </ul>
+
+</body>
+</html>

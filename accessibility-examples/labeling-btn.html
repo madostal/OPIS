@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Labeling the custom elements</title>
+
+    <style>
+        body { font-family: Arial, Helvetica, sans-serif; }
+        .container {
+            display: flex;
+            flex-direction: row;
+        }
+        .item {
+            flex-grow: 1;
+            margin: 0 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #2b3595;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 15px;
+            border-radius: 3px;
+        }
+        .btn:hover {
+            cursor: pointer;
+            background: #182952;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Two same buttons, we need to describe the buttons depending on the sections where they are... -->
+    <div class="container">
+        <section aria-label="T-shirts section" class="item">
+            <h2 id="tshirts-heading">T-shirts</h2>
+            <div id="tshirts-btn" 
+                class="btn" 
+                role="button" 
+                tabindex="0" 
+                aria-labelledby="tshirts-btn tshirts-heading"
+                >Shop now</div>
+        </section>
+        <section aria-label="Hoodies section" class="item">
+            <h2>Hoodies</h2>
+            <div class="btn" role="button" tabindex="0">Shop now</div>
+        </section>
+    </div>
+
+</body>
+</html>

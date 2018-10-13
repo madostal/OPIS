@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Testing static web for accessibility">
+    <title>Button and div button</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+    <style>
+        html {padding: 10px;}
+    </style>
+</head>
+<body>
+    <h2>Accessibility of the buttons</h2>
+
+    <!-- Button is a correct way to the full accessible clickable items. It accessible with ENTER or 
+        SPACE key, div below is not in default. We can make the div button below clickable with keys 
+        by JS script. -->
+    <button class="btn btn-danger" onclick="ownAlert()">Accessible</button>
+
+    <!-- This div use ARIA attributes to describe div as button -->
+    <div class="btn btn-primary" onkeydown="catchKey(event)" onclick="ownAlert()" tabindex="0" role="button">
+        Also accessible
+    </div>
+
+    <!-- Incorrect label for input. Missing the "for" tag. -->
+    <label>
+        Label without for tag
+        <input type="email" name="testMail" id="testMail">
+    </label>
+    
+    <br><br>
+
+    <div class="btn btn-danger" tabindex="0">
+        Non accessible button
+    </div>
+
+    <script>
+        function catchKey(e) {
+            if (e.keyCode == 13 || e.keyCode == 32)
+                ownAlert();
+        }
+
+        function ownAlert() {
+            alert('btn was clicked');
+        }
+    </script>
+</body>
+</html>

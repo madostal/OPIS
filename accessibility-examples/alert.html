@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Accessibility of alerts example</title>
+
+    <style>
+        body { font-family: Arial, Helvetica, sans-serif; }
+        hr { margin: 30px 0; }
+        .hidden { display: none !important; }
+        .alert { margin-bottom: 20px; }
+        
+        .notification {
+            display: flex;
+            align-items: center;
+            padding: 16px;
+            background: #43A047;
+            color: #FFF;
+        }
+    </style>
+</head>
+<body>
+    <template id="notification-tmpl">
+        <div class="notification">Notification message!</div>
+    </template>
+
+    <!-- BEST way for alerts, tested on all the most used screen readers -->
+    <div id="alert" class="alert" role="alert"></div>
+    <button id="btn">Show alert</button>
+
+    <script>
+        const btn = document.querySelector('#btn');
+        const alert = document.querySelector('#alert');
+        const tmpl = document.querySelector('#notification-tmpl');
+
+        btn.onclick = function() {
+            const clone = tmpl.content.cloneNode(true);
+            alert.appendChild(clone);
+        };
+    </script>
+
+    <hr>
+
+    <!-- ANOTHER way for alerts -->
+    <div id="alert2" class="alert notification hidden" role="alert">Another nofitication message!</div>
+    <button id="btn2">Show incorrect alert</button>
+
+    <script>
+        const btn2 = document.querySelector('#btn2');
+        const alert2 = document.querySelector('#alert2');
+
+        btn2.onclick = function() {
+            alert2.classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
