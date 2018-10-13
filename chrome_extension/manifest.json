@@ -1,0 +1,27 @@
+{
+	"name": "Basic web a11y test",
+	"version": "0.1.0",
+	"description": "Check of the web accessibility basics for people with disabilities and different devices.",
+	"permissions": ["activeTab", "declarativeContent", "storage"],
+	"background": {
+		"scripts": ["background.js"],
+		"persistent": false
+	},
+	"page_action": {
+		"default_popup": "popup.html",
+		"default_icon": {
+			"16": "images/a11n_16.png",
+			"32": "images/a11n_32.png",
+			"48": "images/a11n_48.png",
+			"128": "images/a11n_128.png"
+		}
+	},
+	"icons": {
+		"16": "images/a11n_16.png",
+		"32": "images/a11n_32.png",
+		"48": "images/a11n_48.png",
+		"128": "images/a11n_128.png"
+	},
+	"options_page": "options.html",
+	"manifest_version": 2
+}
