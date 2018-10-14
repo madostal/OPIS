@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Custom toggle button</title>
+
+  <style>
+    howto-toggle-button {
+      background-color: #eee;  
+      padding: 3px;
+      cursor: default;
+      user-select: none;
+      border: 1px solid #333;
+      border-radius: 3px;
+      transition: background-color .2s ease;
+    }
+    howto-toggle-button[pressed],
+    howto-toggle-button:not([disabled]):active {
+      background-color: #999;
+    }
+    howto-toggle-button[disabled] {
+      opacity: 0.35;
+    }
+  </style>
+</head>
+<body>
+
+  <howto-toggle-button>Press me</howto-toggle-button>
+  <script src="./howto-toggle-button.js"></script>
+</body>
+</html>

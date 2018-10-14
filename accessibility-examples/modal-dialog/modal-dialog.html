@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Modal dialog accessibility example</title>
+
+    <style>
+        body {padding:0; margin:0; font-family: Roboto, Arial, Helvetica, sans-serif;}
+        .container {padding:30px 10px; text-align:center;}
+    </style>
+
+    <!-- Modal dialog styles -->
+    <link rel="stylesheet" href="modal-dialog.css">
+
+    <!-- Material Design -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <button class="dialog-button mdc-button mdc-button--raised">Open dialog</button>
+        <button class="alert-button mdc-button mdc-button--outlined">Alert button</button>
+    </div>
+
+    <div class="dialog" role="dialog" aria-labelledby="modal-title">
+        <div class="dialog-window">
+            <div class="dialog-header">
+                <h2 id="modal-title">Dialog example</h2>
+            </div>
+            <div class="dialog-body">
+                <p>This is answer of the example dialog. Do you agree with that?</p>
+            </div>
+            <div class="dialog-footer">
+                <button class="mdc-button">Cancel</button>
+                <button class="mdc-button">Agree</button>
+            </div>
+        </div>
+        <div class="dialog-mask"></div>
+    </div>
+
+    <script src="../node_modules/wicg-inert/dist/inert.min.js"></script>
+    <script src="modal-dialog.js"></script>
+    <script>
+        // Material design buttons instantiation
+        const alertButton = document.querySelector('.alert-button');
+        const dialogButton = document.querySelector('.dialog-button');
+        mdc.ripple.MDCRipple.attachTo(alertButton);
+        mdc.ripple.MDCRipple.attachTo(dialogButton);
+
+        alertButton.addEventListener('click', function() {
+            alert('Alert example open.');
+        });
+        dialogButton.addEventListener('click', openDialog);
+    </script>
+</body>
+</html>
