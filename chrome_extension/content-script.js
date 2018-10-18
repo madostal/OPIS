@@ -109,7 +109,7 @@ if (checkInputLabels()) {
   results.hasInputLabels = true;
 }
 
-// TODO: check for some aria attributes
+// check for some aria attributes
 if (checkForAriaAttributes()) {
   esults.hasAriaAttributes = true;
 }

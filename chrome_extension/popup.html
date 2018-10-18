@@ -1,15 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <style>
-    button {
-      border: none;
-    }
-  </style>
+  <!-- Google fonts and styles -->
+  <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <button id="changeColor">Check the page</button>
-  <p id="forResultText"></p>
+  <main class="container">
+    <button class="start-button mdc-button mdc-button--unelevated" id="changeColor">
+      Start test
+    </button>
+    <section class="results">
+      <ul class="mdc-list mdc-list--non-interactive" aria-orientation="vertical">
+        <li class="mdc-list-item">
+          <i class="material-icons test-ok">check</i> HTML5
+        </li>
+        <li class="mdc-list-item">
+          <i class="material-icons test-ok">check</i> Mobile accessibility
+        </li>
+        <li class="mdc-list-item">
+          <i class="material-icons test-error">close</i> Using native tags <br>
+        </li>
+        <li class="mdc-list-item">
+          <i class="material-icons test-error">close</i> Images alt <br>
+        </li>
+        <li class="mdc-list-item">
+          <i class="material-icons test-ok">check</i> Input labels <br>
+        </li>
+        <li class="mdc-list-item">
+          <i class="material-icons test-error">close</i> Using W3C-ARIA <br>
+        </li>
+      </ul>
+    </section>
+  </main>
+
 	<script src="popup.js"></script>
 </body>
 </html>

@@ -1,0 +1,43 @@
+:root {
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+.container {
+  width: 200px !important;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.results {
+  width: 100%;
+  margin-top: 16px;
+}
+
+button {
+  background-color: royalblue !important;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.material-icons.test-ok {
+  color: rgb(59, 207, 77);
+}
+.material-icons.test-error {
+  color: #ff8080;
+}
+
+.mdc-list {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.mdc-list-item .material-icons {
+  margin-right: 8px;
+}
+.mdc-list-item {
+  min-height: 30px;
+  margin: 0;
+}

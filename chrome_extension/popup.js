@@ -12,7 +12,7 @@ changeColor.onclick = function() {
 			{ file: 'content-script.js' }, 
 			function(results) {
 				// TODO: later maybe showing results here in popup
-				document.getElementById('forResultText').innerHTML = results;
+				document.querySelector('.results').innerHTML = results;
 			}
 		);
 	});
