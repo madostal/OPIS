@@ -87,49 +87,31 @@ function checkForAriaAttributes() {
 // check of html5 doctype
 if (usingHTML5()) {
   results.hasHTML5 = true;
-  alert('Perfect! Page uses HTML5.');
-} else {
-  alert('Ooops! Page does not use HTML5. Check...');
 }
 
 // check meta viewport tag
 if (correctViewportForMobiles()) {
   results.hasMetaViewport = true;
-  alert('Perfect! Page uses the correct viewport meta tag for supporting mobile devices.');
-} else {
-  alert('Ooops! Page does not use the correct viewport meta tag for supporting mobile devices. Check...');
 }
 
 // check HTML5 native tags
 if (usingNativeHTML5Tags()) {
   results.hasNativeTags = true;
-  alert('Perfect! Page uses new native HTML5 tags.');
-} else {
-  alert('Ooops! Page does not use new native HTML5 tags. Check...');
 }
 
 // check img alts
 if (checkImageAlts()) {
   results.hasImgAlts = true;
-  alert('Perfect! All images has alt attribute to describe them.');
-} else {
-  alert('Ooops! Some image has not alt attribute to describe its.');
 }
 
 // check input labels
 if (checkInputLabels()) {
   results.hasInputLabels = true;
-  alert('Perfect! All inputs has labels to describe them.');
-} else {
-  alert('Ooops! Some input has no label. Check...');
 }
 
 // TODO: check for some aria attributes
 if (checkForAriaAttributes()) {
   esults.hasAriaAttributes = true;
-  alert('Perfect! Page uses some aria attributes to describe elements.');
-} else {
-  alert('Ooops! Page does not use aria attributes to describe elements. Some elements may be unreadable for screen readers. Check...');
 }
 
 // result of the script
