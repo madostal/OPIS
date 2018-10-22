@@ -25,45 +25,51 @@ function correctViewportForMobiles() {
 }
 
 function usingNativeHTML5Tags() {
+  var result = false;
   var tags = ['article', 'aside', 'bdi', 'details', 'dialog', 'figcaption', 'figure', 'footer', 
       'header', 'main', 'mark', 'meter', 'nav', 'progress', 'rp', 'rt', 'ruby', 'section', 
       'summary', 'time', 'wbr'];
   
   tags.forEach(tag => {
-    if (document.querySelector(tag)) {
-      return true;
+    if (document.querySelector(tag) != null) {
+      result = true;
     }
   });
   
-  return false;
+  return result;
 }
 
 function checkImageAlts() {
+  var result = true;
+
   document.querySelectorAll('img').forEach(img => {
     if (img.alt === '') { // todo kontrola taky title
-      return false;
+      console.log(img);
+      result = false;
     }
   });
 
-  return true;
+  return result;
 }
 
 function checkInputLabels() {
+  var result = true;
   // all inputs without input types: button, image, reset, submitss
   var inputs = document.querySelectorAll('input:not([type="button"]):not([type="image"]):not([type="reset"]):not([type="submut"])');
   
   inputs.forEach(input => {
     if ((input.id === '' && input.parentElement.nodeName !== 'label') 
-        || (input.id !== '' && document.querySelector(`label[for="${input.id})]"`) === null)) {
-      return false;
+        || (input.id !== '' && document.querySelector(`label[for="${input.id}"]`) === null)) {
+      console.log(input);
+      result = false;
     }
   });
 
-  return true;
+  return result;
 }
 
 function checkForAriaAttributes() {
-  // TODO: create array from all aria attributes
+  var results = false;
   var ariaAttributes = ['aria-autocomplete', 'aria-checked', 'aria-current', 'aria-disabled', 
       'aria-errormessage', 'aria-expanded', 'aria-haspopup', 'aria-hidden', 'aria-invalid', 
       'aria-label', 'aria-level', 'aria-modal', 'aria-multiline', 'aria-multiselectable', 
@@ -77,11 +83,11 @@ function checkForAriaAttributes() {
 
   ariaAttributes.forEach(attr => {
     if (document.querySelector(`*[${attr}]`) !== null) {
-      return true; // todo pocitat skore
+      result = true; // todo pocitat skore
     }
   });
 
-  return false;
+  return result;
 }
 
 // check of html5 doctype
@@ -111,7 +117,7 @@ if (checkInputLabels()) {
 
 // check for some aria attributes
 if (checkForAriaAttributes()) {
-  esults.hasAriaAttributes = true;
+  results.hasAriaAttributes = true;
 }
 
 // result of the script
