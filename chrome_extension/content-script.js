@@ -69,7 +69,7 @@ function checkInputLabels() {
 }
 
 function checkForAriaAttributes() {
-  var results = false;
+  var result = false;
   var ariaAttributes = ['aria-autocomplete', 'aria-checked', 'aria-current', 'aria-disabled', 
       'aria-errormessage', 'aria-expanded', 'aria-haspopup', 'aria-hidden', 'aria-invalid', 
       'aria-label', 'aria-level', 'aria-modal', 'aria-multiline', 'aria-multiselectable', 
