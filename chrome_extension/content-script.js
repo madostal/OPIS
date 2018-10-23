@@ -59,7 +59,9 @@ function checkInputLabels() {
   
   inputs.forEach(input => {
     if ((input.id === '' && input.parentElement.nodeName !== 'label') 
-        || (input.id !== '' && document.querySelector(`label[for="${input.id}"]`) === null)) {
+        || (input.id !== '' && document.querySelector(`label[for="${input.id}"]`) === null)
+        // TODO: check for aria-label or aria-labelledby
+        ) {
       console.log(input);
       result = false;
     }

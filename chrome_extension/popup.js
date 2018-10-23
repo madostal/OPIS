@@ -14,6 +14,17 @@ function setClassAndIcon(icon, value) {
 	}
 }
 
+function openChromeTab(event) {
+	var url = event.target.dataset.url;
+	if (url) {
+		chrome.tabs.create({url: url});
+	}
+}
+
+function addClickHandler(listItem) {
+	listItem.addEventListener('click', event => openChromeTab(event));
+}
+
 function printResults(resultsObj) {
 	// prints results from JSON function parameter
 	setClassAndIcon(document.querySelector('.test-html5'), resultsObj.hasHTML5);
@@ -22,6 +33,15 @@ function printResults(resultsObj) {
 	setClassAndIcon(document.querySelector('.test-image-alts'), resultsObj.hasImgAlts);
 	setClassAndIcon(document.querySelector('.test-input-labels'), resultsObj.hasInputLabels);
 	setClassAndIcon(document.querySelector('.test-aria-tags'), resultsObj.hasAriaAttributes);
+
+	// Add urls on pages which describe the tested point
+	addClickHandler(document.querySelector('.test-html5-item'));
+	addClickHandler(document.querySelector('.test-mobile-a11y-item'));
+	addClickHandler(document.querySelector('.test-native-tags-item'));
+	addClickHandler(document.querySelector('.test-image-alts-item'));
+	addClickHandler(document.querySelector('.test-input-labels-item'));
+	addClickHandler(document.querySelector('.test-aria-tags-item'));
+
 	resultsContainer.classList.remove('hidden');
 }
 
