@@ -2,11 +2,17 @@
 	"name": "Basic web a11y test",
 	"version": "0.1.0",
 	"description": "Check of the web accessibility basics for people with disabilities and different devices.",
-	"permissions": ["activeTab", "declarativeContent", "storage"],
+	"permissions": ["activeTab", "declarativeContent", "storage", "tabs"],
 	"background": {
 		"scripts": ["background.js"],
 		"persistent": false
 	},
+	"content_scripts": [
+		{
+		  	"matches": ["http://*/*", "https://*/*"],
+		  	"js": ["audit-page.js"]
+		}
+	],
 	"page_action": {
 		"default_popup": "popup.html",
 		"default_icon": {
