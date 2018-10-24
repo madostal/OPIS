@@ -45,21 +45,9 @@ function printResults(resultsObj) {
 	resultsContainer.classList.remove('hidden');
 }
 
-// chrome.storage.sync.get('color', function(data) {
-// 	changeColor.style.backgroundColor = data.color;
-// 	changeColor.setAttribute('value', data.color);
-// });
-
-testButton.onclick = function() {
-	resultsContainer.classList.add('hidden');
-	chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-		chrome.tabs.executeScript(
-			tabs[0].id,
-			{ file: 'content-script.js' }, 
-			function(results) {
-				// showing results here in popup
-				printResults(JSON.parse(results));
-			}
-		);
+window.onload = function() {
+	chrome.storage.sync.get('results', (data) => {
+		console.log('start printing:', data.results);
+		printResults(JSON.parse(data.results));
 	});
-};
+}

@@ -93,8 +93,8 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
       hasInputLabels: checkInputLabels(),
       hasAriaAttributes: checkForAriaAttributes()
     };
-    console.log(results);
 
-    sendResponse(results);
+    console.log(results);
+    sendResponse(JSON.stringify(results));
   }
 });

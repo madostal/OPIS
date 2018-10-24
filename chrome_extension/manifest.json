@@ -13,14 +13,16 @@
 		  	"js": ["audit-page.js"]
 		}
 	],
-	"page_action": {
-		"default_popup": "popup.html",
+	"browser_action": {
 		"default_icon": {
 			"16": "images/a11n_16.png",
 			"32": "images/a11n_32.png",
 			"48": "images/a11n_48.png",
 			"128": "images/a11n_128.png"
-		}
+		},
+		"default_title": "Basic web a11y test",
+		"default_popup": "popup.html",
+		"default_badge": "0"
 	},
 	"icons": {
 		"16": "images/a11n_16.png",
