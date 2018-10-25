@@ -24,6 +24,11 @@ a {
   color: inherit;
   text-decoration: none;
 }
+p.note {
+  color: rgba(0,0,0,.5);
+  font-size: 12px;
+  padding: 0 8px;
+}
 
 .material-icons.test-ok {
   color: rgb(59, 207, 77);

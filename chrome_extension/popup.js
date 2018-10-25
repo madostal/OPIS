@@ -45,9 +45,26 @@ function printResults(resultsObj) {
 	resultsContainer.classList.remove('hidden');
 }
 
-window.onload = function() {
-	chrome.storage.sync.get('results', (data) => {
-		console.log('start printing:', data.results);
-		printResults(JSON.parse(data.results));
+testButton.onclick = () => {
+	chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
+		if (tabs[0].url.match('http://*/*') !== null || tabs[0].url.match('https://*/*') !== null) {
+			var code = 'window.location.reload();';
+			console.log(tabs[0].id);
+		  	chrome.tabs.executeScript(tabs[0].id, {code: code});
+		}
+	});
+};
+
+window.onload = () => {
+	chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
+		// tabs[0].id is a key of data for actual tab
+		var key = 't' + tabs[0].id.toString();
+
+		chrome.storage.sync.get(key, (data) => {
+			if (data[key] !== undefined) {
+				console.log('start printing:', data);
+				printResults(JSON.parse(data[key]));
+			}
+		});
 	});
 }
